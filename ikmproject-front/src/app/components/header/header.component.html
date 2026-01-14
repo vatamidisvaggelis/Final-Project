@@ -1,0 +1,18 @@
+<nav class=" navbar mt-2  text-center bg-primary bg-opacity-75 ">
+    <h4 class=" navbar-brand ms-2 cursor-pointer " routerLink="welcome" role="button">
+        INFORMATION KNOWLEDGE MANAGEMENT SECTION
+    </h4>
+        
+        @if(user()){
+        <span class=" d-flex gap-2 me-3 text-light">{{user()?.username}}<span class="" role="button" (click)="log_Out()"  >log out</span></span>
+        }
+
+        
+
+        @if(!user()){
+        
+        <span class="navbar-brand text-light" role="button" routerLink="login">login</span>
+
+        }
+    
+</nav>

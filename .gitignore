@@ -1,0 +1,26 @@
+# --- Node / npm ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Angular / build outputs ---
+dist/
+out-tsc/
+.angular/cache/
+
+# --- Backend ---
+coverage/
+.env
+.env.*
+*.log
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Misc ---
+tmp/

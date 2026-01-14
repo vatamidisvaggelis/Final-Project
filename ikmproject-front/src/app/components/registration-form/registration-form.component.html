@@ -1,0 +1,112 @@
+<h4 class="text-danger mt-4 mb-3  text-center ">Registration Form</h4>
+<div class="d-flex  justify-content-center">
+<div class="d-flex flex-column w-50 ms-1 ">
+    <form [formGroup] = "form" class="d-flex flex-column ">
+       
+        <mat-form-field>
+            <mat-label> Username</mat-label>
+            <input
+             matInput type="text" 
+             formControlName="username"
+             (blur)="dublicate_username()">
+             @if (form.get('username')?.hasError('usernamematch')){
+                <mat-error>Username already exist</mat-error>
+             }@else if(form.get('username')?.invalid && form.get('username')?.touched){<mat-error>Username is required field</mat-error>}
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email">
+            <mat-error> Email is missing or Invalid</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Firstname</mat-label>
+            <input matInput type="text" formControlName="firstname">
+            <mat-error>Firsrname is required field</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Lastname</mat-label>
+            <input matInput type="text" formControlName="lastname">
+            <mat-error>Last name is required field</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput type="number" formControlName="age">
+            <mat-error>Age is required field</mat-error>
+        </mat-form-field>
+
+        <div class="d-flex flex-column gap-3 form-group text-center" formGroupName="phone">
+            <mat-label class="form-control bg-secondary bg-opacity-25">Phone</mat-label>
+            <div class="d-flex gap-5 justify-content-center">
+            <mat-form-field>
+                <mat-label>type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="Mobile">Mobile</mat-option>
+                    <mat-option value="Home">Home</mat-option>
+                    <mat-option value="Work">Work</mat-option>
+                </mat-select>
+                <mat-error>The field is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Number</mat-label>
+                <input matInput type="text" formControlName="number">
+                <mat-error>The field is required</mat-error>
+            </mat-form-field>
+            </div>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+                <input matInput type="text" formControlName="password">
+            <mat-error>The field is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label> Confirm Password</mat-label>
+            <input matInput type="text" formControlName="ConfirmPassword">
+
+
+            @if (form.get('ConfirmPassword')?.hasError('mismatch')){
+            <mat-error>The password dont match</mat-error>}
+            @else if(form.get('ConfirmPassword')?.invalid && form.get('ConfirmPassword')?.touched){
+                <mat-error> The password is missing or Invalid</mat-error>
+            }
+            @else {<mat-error> The password is missing or Invalid</mat-error>}
+
+                
+        </mat-form-field>
+
+        <button 
+        mat-flat-button
+        type="submit"
+         [disabled]="form.invalid"
+         (click)="OnSubmit()">
+            Register
+        </button>
+        @if(errorMessage){
+            <span class="text-danger mt-2">{{errorMessage}}</span>
+        }
+
+    </form>
+    <div class="mt-2 d-flex gap-4 ">
+        <button 
+        class="rounded-3"
+        (click)="Reset()">
+
+            Clear Form
+
+        </button>
+
+        <button 
+        class="rounded-3"
+        (click)="Example()">
+
+            Press for Example
+        </button>
+    </div>
+</div>
+</div>

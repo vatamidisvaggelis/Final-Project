@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-center mb-3">
+    <div>
+        <h4 class="mt-2 mb-3">Please insert your credentials</h4>
+        <div class="w-75 gap-5">
+            <form  [formGroup]="form" (ngSubmit)="login()" class="d-flex flex-column gap-4">
+                <div class="form-group">
+                    <label class="">
+                        username
+                    </label>
+                    <input class="form-control" type="text" formControlName="username" >
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        password
+                    </label>
+                    <input  class="form-control" formControlName="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                    login
+
+                </button>
+
+                @if(message){
+        <span type="" class="bg-primary bg-opacity-25 text-danger text-center">{{message}}</span>
+    }
+
+            </form>
+        </div>
+    </div>
+
+    
+</div>
